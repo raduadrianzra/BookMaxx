@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="carte, autor, bucuresti, literatura, manual, abecedar, probleme, fictiune, librarie, magazin, pagini, academician">
+    <meta name="description" content="Magazin online de carti, manuale, suveniruri.">
+    <meta name="author" content="Zamfir Radu-Adrian">
+    <title>Libraria BookMaxx</title>
+    <!--<link rel="icon" type="image/png" href="./resurse/imagini/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="./resurse/imagini/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="./resurse/imagini/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./resurse/imagini/favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="./resurse/imagini/favicon/site.webmanifest" /> -->
+</head>
+
+<body>
+    <header>
+        <hgroup>
+            <h1>Libraria BookMaxx</h1>  <!--7) heading cu un subtitlu, hgroup-->
+            <p>O librarie online</p>
+        </hgroup>
+        
+        <nav>
+            <ul>  <!--unordered lsita-->
+                <li>  <!--list item-->
+                    <a href="#acasa">Acasa</a>
+                    <ul>
+                        <li><a href="#despre">Despre Noi</a></li>
+                        <li><a href="#evenimente">Evenimente</a></li>
+                        <li><a href="#top-vanzari">Top vanzari</a></li>
+                        <li><a href="#media">Media</a></li>
+                    </ul>
+                </li>
+                <li><a href="carti.html">Carti</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        
+        <section id="despre">  <!-- section pentru o poriune de rtext cu o tema clara -->
+            <h2>Despre librarie</h2>
+            <p>Suntem o librarie pentru iubitorii de lectura. </p>    <!-- 6) folositi minim un tag dintre section si article-->
+            
+            <article>  <!--article are continut independent, are sens de unul singur-->
+                <h3>Scopul librariei</h3> 
+                <p>Ne dorim sa aducem cele mai bune titluri aproape de voi.</p>
+                <blockquote>
+                    "Ai carte ai parte."  <!--9)folosit blockquote si p-->
+                </blockquote>
+                
+                <p>Daca te consideri <dfn title="Iubitor și colecționar de cărți rare și prețioase.">bibliofil</dfn> atunci libraria noastra este perfecta pentru tine.</p>  <!--12)dfn-->
+            </article>
+
+            <figure>  <!--facut putin din 11)aici-->
+                <picture>
+                    <!--<img src="./resurse/imagini/carte_mare.jpg" alt = "carte">
+                    <img src="./resurse/imagini/carte_medie.jpg" alt = "carte"> -->
+                    <img src="./resurse/imagini/carte_mica.jpg" alt="Carte Isaac" title="imagine carte mica">
+                </picture>
+                <figcaption>O carte laudata de critici.</figcaption>
+            </figure>
+            
+            <p>Poti descarca catalogul nostru aici: 
+               <a href="./resurse/Catalog.pdf" download="Catalog_2026.pdf">Descarca catalogul</a>  <!--13 e) link downlaod-->
+            </p>
+        </section>
+
+        <section id="evenimente">  <!--10)sectiune de evenimente-->
+            <h2>Evenimente</h2>
+            <ol>
+                <li>
+                    <time datetime="2026-04-10T18:30">10 Aprilie, ora 18:30</time> - <b>Lansare de carte</b>: Un nou roman a fost publicat de catre Mircea Cartarescu, <abbr title ="academician">acad</abbr>. Autorul cartii va oferi autografe.  <!--12)folosit abbr-->
+                </li>
+                <li>
+                    <time datetime="2026-04-15T12:00">15 Aprilie, ora 12:00</time> - <b>Carti cadou</b>: Oferim tuturor vizitatorilor cate o carte gratuita.
+                </li>
+            </ol>
+        </section>
+
+        <section id="stocuri">  <!--17) meter -->
+            <h2>Stocuri</h2>
+            <p>Stoc "Harry Potter" de J.K Rowling <strong>(Cerere mare)</strong>:  <!--12)c)folosit strong-->
+                <meter value="12" min="0" max="100" low="20" high="80" optimum="90"></meter> - Ultimele articole
+            </p>
+            <p>Stoc "Ion" de Liviu Rebreanu: 
+                <meter value="85" min="0" max="100" low="20" high="80" optimum="90"></meter> - Stoc suficient
+            </p>
+        </section>
+
+        <section id="top-vanzari">
+            <h2>Top Vanzari luna trecuta</h2>  <!--15) tabel -->
+            <table>
+                <caption>Cele mai vandute carti si incasarile vanzarilor</caption>
+                <thead>
+                    <tr>
+                        <th>Titlu carte</th>
+                        <th>Autor</th>
+                        <th>Exemplare vandute</th>
+                        <th>Pret</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Metamorfoza</td>
+                        <td>Franz Kafka</td>
+                        <td>150</td>
+                        <td>35 RON</td>
+                    </tr>
+                    <tr>
+                        <td>Micul Print</td>
+                        <td>Antoine de Saint-Exupery</td>
+                        <td>120</td>
+                        <td>25 RON</td>
+                    </tr>
+                    <tr>
+                        <td>Pacienta tacuta</td>
+                        <td>Alex Michaelides</td>
+                        <td>95</td>
+                        <td>40 RON</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2">Pachet Promo: Morometii vol. 1 si vol. 2</td>
+                        <td rowspan="2">Marin Preda</td>
+                        <td>Vol 1: 80</td>
+                        <td>50 RON</td>
+                    </tr>
+                    <tr>
+                        <td>Vol 2: 75</td>
+                        <td>50 RON</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th colspan="4">Date actualizate la finalul lunii trecute.</th>
+                    </tr>
+                </tfoot>
+            </table>
+        </section>
+
+        <section id="faq">  <!--16) mai multe zone faq-->
+            <h2>Intrebari frecvente</h2>
+            <details>
+                <summary>Cat dureaza livrarea?</summary>
+                <p>Livrarea dureaza intre 2 si 4 zile lucratoare.</p>
+            </details>
+            <details>
+                <summary>Pot returna o carte?</summary>
+                <p>Da, orice carte poate fi returnata in maxim 14 zile de la achizitie, cu conditia sa nu fie deteriorata.</p>
+            </details>
+        </section>
+
+        <section id="media">
+            <h2>Media</h2>  <!--13) a) link catre o sursa externa-->
+            <p>Puteti citi mai multe despre importanta cititului aici: 
+                <a href="https://www.dictie.ro/20-de-motive-pentru-care-cititul-este-important/" target="_blank">Importanta cititului</a> <!--blank pt tab nou-->
+            </p>
+            
+           <!-- <p>Pentru termeni si conditii accesati documentatia: 
+                <a href="https://termcond.ro/#sectiunea4">https://termcond.ro/<wbr>#sectiunea4</a>    13) b)element dintr-o sursa ext (steluta*), nu facut
+            </p>
+            -->
+
+            <!--<div>
+                <p>video:</p>
+                <ul>
+                    <li><a href="https://www.youtube.com/embed/jfKfPfyJRdk" target="video_player">Recenzie: Cartea 1</a></li>
+                </ul>
+            </div>
+            <iframe name="video_player" width="560" height="315"-->
+        </section>
+    </main>
+
+    <footer>
+        <hr>
+        <address>
+            <p>Contacteaza-ne:</p>   <!--18) contacte-->
+            <a href="tel:+40773816105"> +40 773 816 105</a><br>
+            <a href="mailto:contact@bookmaxx.ro">contact@bookmaxx.ro</a><br>
+            <a href="https://www.google.com/maps/place/Facultatea+de+Matematic%C4%83+%C8%99i+Informatic%C4%83/@44.4355393,26.0970118,17z/data=!3m1!4b1!4m6!3m5!1s0x40b1ff472f47f047:0x493984726f0235f9!8m2!3d44.4355355!4d26.0995867!16s%2Fg%2F1td63tdh?entry=ttu&g_ep=EgoyMDI2MDMxMS4wIKXMDSoASAFQAw%3D%3D" target="_blank">
+            Locatie<br>
+            </a>
+        </address>
+        
+        <p><a href="#acasa"> Revino la inceputul paginii</a></p>  <!--13) c)link catre inceputul paginii-->
+
+        <p>
+            <small>
+                &copy; <time datetime="2026-02-25">25 Februarie 2026</time> Libraria online. <!--19)-->
+            </small>
+        </p>
+    </footer>
+</body>
+</html>
