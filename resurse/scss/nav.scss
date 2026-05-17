@@ -145,7 +145,7 @@ nav {
             padding: 12px 16px;
             white-space: nowrap;
 
-            .nav-text {
+            .nav-text {  /*Etapa 3 fade text acasa*/
                 transition: opacity 0.3s ease;
             }
         }
@@ -157,7 +157,7 @@ nav {
             opacity: 1;
         }
 
-        .submenu {
+        .submenu {   /*menu transformare etapa 3*/
             position: absolute;
             top: 100%;
             left: 0;

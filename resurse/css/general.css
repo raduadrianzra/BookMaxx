@@ -1,23 +1,23 @@
 body {
     --culoare-fundal: #FAF5E9;
     --culoare-text: #2C3E50;
-    --culoare-principala: #8D6E63;
+    --culoare-principala: #8D6E63;   /*Etapa 2 1)schema cromatica*/ 
     --culoare-border: #D7CCC8;
     --culoare-highlight: #D35400;
 
-    --spatiere-laterala: 5px;
+    --spatiere-laterala: 5px;  /*Etapa 2 task rudimentar a)*/
     --grid-gap: 5px;
     --padding-sectiune: 10px;
 
     background-color: var(--culoare-fundal);
     color: var(--culoare-text);
     margin: 0;
-    font-family: 'Open Sans', Arial, sans-serif;
+    font-family: 'Open Sans', Arial, sans-serif;  /*Etapa 2 task font*/
 }
 
 html {
     font-size: 14px;
-    transition: font-size 0.5s ease;
+    transition: font-size 0.5s ease;  /*Etapa 2 2.2)scris redimensionare*/
     scroll-behavior: smooth;
 }
 
@@ -26,7 +26,7 @@ html {
 }
 
 h1, h2, h3 {
-    font-family: 'Lora', Georgia, serif;
+    font-family: 'Lora', Georgia, serif;  /*Etapa 2 task font*/
 }
 
 h1 { font-size: 2.5rem; color: var(--culoare-principala); }
@@ -44,19 +44,19 @@ a:hover {
 
 header, footer {
     background-color: var(--culoare-border);
-    padding: var(--padding-sectiune) calc(var(--spatiere-laterala) + 15px);
+    padding: var(--padding-sectiune) calc(var(--spatiere-laterala) + 15px);  /*Etapa 2 task rudimentar a)*/
 }
 
 .banner-scolar {
     display: none;
 }
 
-.grid-container {
+.grid-container {  /*Etapa 2 2.1) layout-responsive*/ 
     display: grid;
-    gap: var(--grid-gap);
-    padding: var(--grid-gap) var(--spatiere-laterala);
+    gap: var(--grid-gap);   /*Etapa 2 task rudimentar b)*/
+    padding: var(--grid-gap) var(--spatiere-laterala);    /*Etapa 2 task rudimentar a)*/
 
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr;   /*o coloana sub 768*/
     grid-template-areas:
         "z1"
         "z5"
@@ -78,14 +78,14 @@ header, footer {
 .zona-8 { grid-area: z8; }
 
 main section {
-    border: 1px solid var(--culoare-border);
-    padding: var(--padding-sectiune);
+    border: 1px solid var(--culoare-border);  /*Etapa 2 task rudimentar c)*/
+    padding: var(--padding-sectiune);  /*Etapa 2 task rudimentar d)*/
     border-radius: 5px;
     background-color: white;
     box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.08);
 }
 
-img, video, figure {
+img, video, figure {   /*Etapa 2 task rudimentar e) ecran mic*/
     width: 95%;
     max-width: 480px;
     min-width: 150px;
@@ -97,7 +97,7 @@ figure {
     margin: 10px auto;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 768px) {    /*peste 768 2 coloane intre 1024*/
     body {
         --spatiere-laterala: 30px;
         --grid-gap: 10px;
@@ -117,14 +117,14 @@ figure {
             "z8 z8";
     }
 
-    img, video, figure {
+    img, video, figure {  /*Etapa 2 task rudimentar e) ecran mediu */
         width: 80%;
         max-width: 600px;
         min-width: 200px;
     }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1024px) { /*peste 1024*/
     body {
         --spatiere-laterala: 70px;
         --grid-gap: 15px;
@@ -134,23 +134,23 @@ figure {
     html { font-size: 16px; }
 
     .grid-container {
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
         grid-template-areas:
-            "z1 z1 z1"
-            "z5 z6 z7"
-            "z3 z2 z2"
-            "z4 z2 z2"
-            "z8 z8 z8";
+            "z1 z1 z1 z1"
+            "z5 z6 z6 z7"
+            "z3 z3 z2 z2"
+            "z4 z4 z2 z2"
+            "z8 z8 z8 z8";
     }
 
-    img, video, figure {
+    img, video, figure {  /*Etapa 2 task rudimentar e) ecran mare*/
         width: 70%;
         max-width: 800px;
         min-width: 250px;
     }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 767px) {  /*Etapa 2 2.3) dezactivare animatii ecran mic*/
     * {
         animation: none !important;
         transition: none !important;
@@ -162,7 +162,7 @@ figure {
     overflow-x: auto;
 }
 
-table {
+table {   /*Etapa 2 4) stilizare tabel*/
     width: 100%;
     border-collapse: collapse;
     border: 5px double var(--culoare-principala);
@@ -194,7 +194,7 @@ table tbody tr:hover th {
     border-width: 5px;
 }
 
-.container-iframe-taburi {
+.container-iframe-taburi {  /*Etapa 2 3) stilizare taburi*/
     display: flex;
     width: 100%;
     height: 400px;
@@ -203,7 +203,7 @@ table tbody tr:hover th {
 }
 
 .iframe-continut {
-    flex-grow: 1;
+    flex-grow: 1;  /*ocupa restul latimii*/
     width: auto;
     min-width: 0;
     max-width: none;
@@ -217,7 +217,7 @@ table tbody tr:hover th {
     flex-direction: column;
     background-color: var(--culoare-border);
     width: 180px;
-    flex-shrink: 0;
+    flex-shrink: 0;  /*sa nu se stranga cand e spatiu mic*/
 }
 
 .meniu-taburi a {
@@ -238,7 +238,7 @@ table tbody tr:hover th {
     color: white;
 }
 
-#link-top {
+#link-top {    /*Etapa 2 5) link top*/
     position: fixed;
     bottom: 30px;
     right: 30px;
