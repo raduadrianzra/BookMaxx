@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+    <title>Libraria BookMaxx - Despre noi</title>
+    <meta name="keywords" content="carte, autor, bucuresti, literatura, manual, abecedar, probleme, fictiune, librarie, magazin, pagini, academician">
+    <meta name="description" content="Magazin online de carti, manuale, suveniruri.">
+
+    <%- include('../fragmente/head.ejs') %>
+    
+</head>
+
+<body id="acasa">
+    <header>
+        <hgroup>
+            <h1>
+                <i class="fa-solid fa-book-open fa-spin" aria-hidden="true"></i>
+                Libraria BookMaxx
+            </h1>
+            <p>O librarie online</p>
+        </hgroup>
+        <%- include('../fragmente/header.ejs') %>
+
+    <main>
+        <section>
+            <h2>Despre BookMaxx</h2>
+            <p>
+                <strong>BookMaxx</strong> este o librarie online romaneasca fondata cu mult timp in urma, 
+                cu scopul de a aduce cartea mai aproape de cititori.
+                Oferim o gama larga de titluri — de la literatura romana si universala, 
+                pana la manuale scolare, carti tehnice si suveniruri culturale.
+            </p>
+        </section>
+
+        <section>
+            <h2>Misiunea noastra</h2>
+            <p>
+                Credem ca orice om ar trebui sa aiba acces usor la lectura. 
+                De aceea, ne-am propus sa oferim preturi mici, livrare rapida 
+                si o experienta de cumparare simpla si placuta.
+            </p>
+            <blockquote>
+                "O carte buna este cea mai bună prietena pe care o poti avea."
+            </blockquote>
+        </section>
+
+        <section>
+            <h2>De ce BookMaxx?</h2>
+            <ul>
+                <li><i class="fa-solid fa-truck" aria-hidden="true"></i> Livrare in 2-4 zile lucratoare in toata Romania</li>
+                <li><i class="fa-solid fa-tag" aria-hidden="true"></i> Preturi accesibile si reduceri periodice</li>
+                <li><i class="fa-solid fa-rotate-left" aria-hidden="true"></i> Retur gratuit in 14 zile</li>
+                <li><i class="fa-solid fa-headset" aria-hidden="true"></i> Suport clienti disponibil zilnic</li>
+                <li><i class="fa-solid fa-book" aria-hidden="true"></i> Peste 2.000 de titluri in catalog</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Echipa noastra</h2>
+            <p>
+                Suntem o echipa mica dar pasionata de lectura, formata din 
+                8 oameni cu experienta in domeniul editorial si al 
+                comertului online. Fiecare comanda este procesata cu atentie și grija.
+            </p>
+        </section>
+    </main>
+
+    <%- include('../fragmente/footer.ejs') %>
+
+    <script>
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const navList = document.getElementById('nav-list');
+        const mainNav = document.getElementById('main-nav');
+
+        function toggleMenu() {
+            mainNav.classList.toggle('menu-open');
+            navList.classList.toggle('open');
+        }
+
+        hamburgerBtn.addEventListener('click', toggleMenu);
+        hamburgerBtn.addEventListener('keydown', e => {
+            if (e.key === 'Enter' || e.key === ' ') toggleMenu();
+        });
+
+        document.querySelectorAll('.nav-item > a').forEach(link => {
+            link.addEventListener('click', e => {
+                if (window.innerWidth <= 480) {
+                    const submenu = link.nextElementSibling;
+                    if (submenu && submenu.classList.contains('submenu')) {
+                        e.preventDefault();
+                        submenu.classList.toggle('submenu-open');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

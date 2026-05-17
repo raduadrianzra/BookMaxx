@@ -1,0 +1,62 @@
+@media (min-width: 701px) and (max-width: 1000px) {
+  nav {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  nav .hamburger {
+    display: block;
+  }
+  nav .nav-list {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--culoare-border);
+    z-index: 200;
+    border: 1px solid var(--culoare-principala);
+  }
+  nav .nav-list.open {
+    display: flex;
+    -webkit-mask-image: linear-gradient(to bottom, black 0%, black 75%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 0%, black 75%, transparent 100%);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: top center;
+    mask-position: top center;
+    animation: revealMask 0.4s ease forwards;
+  }
+  nav .nav-item > a {
+    padding: 14px 16px;
+    justify-content: flex-start;
+  }
+  nav .nav-item:first-child > a .nav-text {
+    display: none;
+  }
+  nav .nav-item:first-child > a i {
+    font-size: 1.2rem;
+  }
+  nav .nav-item .submenu {
+    position: static;
+    transform: none;
+    display: none;
+    border: none;
+    border-top: 1px solid var(--culoare-principala);
+    background-color: #c8bbb7;
+  }
+  nav .nav-item .submenu li a {
+    padding-left: 32px;
+  }
+  nav .nav-item .submenu.submenu-open {
+    display: block;
+    -webkit-mask-image: linear-gradient(to bottom, black 0%, black 75%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 0%, black 75%, transparent 100%);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: top center;
+    mask-position: top center;
+    animation: revealMask 0.35s ease forwards;
+  }
+}
