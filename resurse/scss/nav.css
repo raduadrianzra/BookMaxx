@@ -1,20 +1,3 @@
-nav .nav-item .submenu li a, nav .nav-item > a {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  color: var(--culoare-text);
-  text-decoration: none;
-  transition: color 0.3s ease;
-  cursor: pointer;
-}
-nav .nav-item .submenu li a i, nav .nav-item > a i {
-  color: var(--culoare-highlight);
-  flex-shrink: 0;
-}
-nav .nav-item .submenu li a:hover, nav .nav-item > a:hover {
-  color: var(--culoare-highlight);
-}
-
 @keyframes bara-1 {
   0% {
     background-color: var(--culoare-principala);
@@ -88,6 +71,26 @@ nav .nav-item .submenu li a:hover, nav .nav-item > a:hover {
     mask-size: 100% 200%;
   }
 }
+nav .nav-item > a,
+nav .nav-item .submenu li a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--culoare-text);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+nav .nav-item > a i,
+nav .nav-item .submenu li a i {
+  color: var(--culoare-highlight);
+  flex-shrink: 0;
+}
+nav .nav-item > a:hover,
+nav .nav-item .submenu li a:hover {
+  color: var(--culoare-highlight);
+}
+
 nav {
   position: relative;
 }
