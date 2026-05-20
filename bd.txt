@@ -1,0 +1,5 @@
+parola 123456
+user am uitat postgres cred
+
+nume utilizator radu
+parola radu

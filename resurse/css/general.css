@@ -375,9 +375,9 @@ h3 i.fa-solid {
         page-break-before: always;
     }
 
-    body::after {
+    body::after {      /*etapa 3 watermark*/
         content: "Zamfir\A Radu-Adrian";
-        white-space: pre;
+        white-space: pre;  /*respecta /A*/
         position: fixed;
         top: 45%;
         left: 50%;
