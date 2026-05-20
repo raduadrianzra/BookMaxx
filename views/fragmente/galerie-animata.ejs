@@ -1,0 +1,18 @@
+<style><%- cssAnimat %></style>
+
+<section id="galerie-animata-wrapper">
+    <h2><i class="fa-solid fa-film" aria-hidden="true"></i> Galerie animata (<%= imaginiAnimate.length %> imagini)</h2>
+    <p><small>Treci cu mouse-ul peste galerie pentru a opri animatia</small></p>
+    <% if (imaginiAnimate.length > 0) { %>
+        <div class="galerie-animata">
+            <div class="imagine-fundal"
+                 style="background-image: url('<%= imaginiAnimate[0].fisier_mare %>');"
+                 aria-hidden="true"></div>
+            <% imaginiAnimate.forEach(function(imag) { %>
+                <img class="imagine-animata"
+                     src="<%= imag.fisier_mare %>"
+                     alt="<%= imag.continut_alternativ || imag.nume_poza %>">
+            <% }); %>
+        </div>
+    <% } %>
+</section>

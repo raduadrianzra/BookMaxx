@@ -1,41 +1,87 @@
 {
-	"cale_galerie":"resurse/imagini/galerie",
-	"imagini": [
-		{
-			"fisier":"briose-frisca.png",
-			"descriere":"Brioșe",
-			"luni":["martie","februarie","noiembrie","aprilie", "decembrie","octombrie"]
-		},
-		{
-			"fisier":"clatite.png",
-			"descriere":"Clătite cu dulceață",
-			"luni":["ianuarie","februarie","iunie","octombrie"]
-			
-		},
-		{
-			"fisier":"gogosi.png",
-			"descriere":"Gogoși glazurate",
-			"luni":["ianuarie","noiembrie","iunie","martie","aprilie"]
-		},
-		{
-			"fisier":"tort-scortisoara.png",
-			"descriere":"Tort cu scorțisoară",
-			
-			"luni":["noiembrie","aprilie", "decembrie"]
-		},
-		{
-			"fisier":"prajitura-ciocolata.png",
-			"descriere":"Prăjitură cu ciocolată",
-			
-			"luni":["noiembrie","aprilie", "decembrie","octombrie"]
-		},
-		{
-			"fisier":"tarta-afine.png",
-			"descriere":"Tartă cu afine"
-		},
-		{
-			"fisier":"tort-trandafiri.png",
-			"descriere":"Tort special"
-		}
-	]
+    "cale_galerie": "resurse/imagini/galerie",
+    "imagini": [
+        {
+            "fisier_imagine": "carti-vechi.jpg",
+            "nume_poza": "Carti vechi legate in piele",
+            "continut_alternativ": "Stiva de carti vechi legate in piele maro",
+            "descriere_poza": "Editii rare din colectia noastra de anticariat",
+            "intervale_zile": [["luni", "duminica"]],
+            "licenta": "CC0"
+        },
+        {
+            "fisier_imagine": "biblioteca-rafturi.jpg",
+            "nume_poza": "Rafturi de biblioteca",
+            "continut_alternativ": "Rafturi inalte pline cu carti intr-o biblioteca clasica",
+            "descriere_poza": "Sala principala a librariei cu mii de titluri",
+            "intervale_zile": [["luni", "vineri"]],
+            "licenta": "CC0"
+        },
+        {
+            "fisier_imagine": "carte-deschisa.jpg",
+            "nume_poza": "Carte deschisa pe masa",
+            "continut_alternativ": "Carte deschisa cu pagini ingalbenite",
+            "descriere_poza": "O lectura buna langa fereastra",
+            "intervale_zile": [["marti", "joi"], ["sambata", "sambata"]],
+            "licenta": "CC0"
+        },
+        {
+            "fisier_imagine": "carte-cafea.jpg",
+            "nume_poza": "Carte si cana de cafea",
+            "continut_alternativ": "Carte deschisa langa o cana aburinda de cafea",
+            "descriere_poza": "Dimineata perfecta pentru iubitorii de lectura",
+            "intervale_zile": [["luni", "duminica"]],
+            "licenta": "CC0"
+        },
+        {
+            "fisier_imagine": "masina-scris.jpg",
+            "nume_poza": "Masina de scris vintage",
+            "continut_alternativ": "Masina de scris veche cu o coala de hartie",
+            "descriere_poza": "Uneltele autorilor de altadata",
+            "intervale_zile": [["miercuri", "duminica"]],
+            "licenta": "CC-BY",
+            "autor": "Florian Klauer",
+            "sursa_atribuire": "https://unsplash.com/photos/mk7D-4UCfmg"
+        },
+        {
+            "fisier_imagine": "raft-clasici.jpg",
+            "nume_poza": "Raft cu clasici universali",
+            "continut_alternativ": "Raft cu romane clasice asezate pe verticala",
+            "descriere_poza": "Colectia Clasicii Universali in vitrina",
+            "intervale_zile": [["luni", "duminica"]],
+            "licenta": "CC0"
+        },
+        {
+            "fisier_imagine": "carte-lampa.jpg",
+            "nume_poza": "Lectura la lumina lampii",
+            "continut_alternativ": "Carte deschisa langa o lampa de noapte galbena",
+            "descriere_poza": "Atmosfera intima pentru cititul de seara",
+            "intervale_zile": [["vineri", "duminica"]],
+            "licenta": "CC0"
+        },
+        {
+            "fisier_imagine": "cititor-fotoliu.jpg",
+            "nume_poza": "Cititor in fotoliu",
+            "continut_alternativ": "Persoana citind o carte intr-un fotoliu confortabil",
+            "descriere_poza": "Coltul de lectura din librarie",
+            "intervale_zile": [["sambata", "duminica"]],
+            "licenta": "CC0"
+        },
+        {
+            "fisier_imagine": "carti-stivuite.jpg",
+            "nume_poza": "Carti stivuite pe birou",
+            "continut_alternativ": "Stiva de carti colorate stivuite vertical",
+            "descriere_poza": "Noutati editoriale ale lunii",
+            "intervale_zile": [["luni", "miercuri"], ["vineri", "vineri"]],
+            "licenta": "CC0"
+        },
+        {
+            "fisier_imagine": "harta-veche.jpg",
+            "nume_poza": "Atlas vechi deschis",
+            "continut_alternativ": "Atlas geografic vechi deschis pe o pagina cu harta",
+            "descriere_poza": "Sectiunea de carti rare si cartografie",
+            "intervale_zile": [["joi", "duminica"]],
+            "licenta": "CC0"
+        }
+    ]
 }

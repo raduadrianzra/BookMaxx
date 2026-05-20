@@ -1,0 +1,27 @@
+<section id="galerie-statica">
+    <h2>Galerie</h2>
+    <div class="grid-galerie">
+        <% imagini.forEach(function(imag) { %>
+            <figure class="item-galerie" title="<%= imag.descriere_poza %>">
+                <picture>
+                    <source srcset="<%= imag.fisier_mare %>" media="(min-width: 1024px)">
+                    <source srcset="<%= imag.fisier_mediu %>" media="(min-width: 768px)">
+                    <img src="<%= imag.fisier_mic %>" alt="<%= imag.continut_alternativ || imag.nume_poza %>"
+                        title="<%= imag.descriere_poza %>">
+                </picture>
+                <figcaption>
+                    <span class="descriere-poza">
+                        <%= imag.descriere_poza %>
+                    </span>
+                    <% if (imag.licenta==="CC-BY" && imag.autor) { %>
+                        <small class="atribuire">
+                            Foto: <a href="<%= imag.sursa_atribuire %>" target="_blank">
+                                <%= imag.autor %>
+                            </a> (CC-BY)
+                        </small>
+                        <% } %>
+                </figcaption>
+            </figure>
+            <% }); %>
+    </div>
+</section>

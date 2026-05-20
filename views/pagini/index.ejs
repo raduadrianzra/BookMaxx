@@ -21,11 +21,13 @@
             <p>O librarie online</p>
         </hgroup>
         <%- include('../fragmente/header.ejs') %>
-        <p><button class ="btn btn-primary">Buton bootstrap</button></p>
+            <p><button class="btn btn-primary">Buton bootstrap</button></p>
             <main class="grid-container">
 
                 <section id="despre" class="zona-1">
-                    <h2>Despre librarie</h2>
+                    <div class="reflexie-wrap">
+                        <h2 class="reflexie-text" data-text="Despre librarie">Despre librarie</h2>
+                    </div>
                     <p>Suntem o librarie pentru iubitorii de lectura.</p>
 
                     <p>IP-ul tău este: <%- locals.ip %></p>
@@ -44,6 +46,13 @@
                             <img src="/resurse/imagini/carte_mica.jpg" alt="Carte Isaac" title="imagine carte mica">
                         </picture>
                         <figcaption>O carte laudata de critici.</figcaption>
+                    </figure>
+
+                    <figure>
+                        <div class="duotone">
+                            <div class="duotone-img"></div>
+                        </div>
+                        <figcaption>Efect duotone &mdash; treci cu mouse-ul pentru grayscale</figcaption>
                     </figure>
 
                     <p>Poti descarca catalogul nostru aici:
@@ -103,15 +112,22 @@
                 <section class="zona-4">
                     <h3>Anunturi</h3>
                     <details>
-                        <summary>&#127881; Reduceri de Mai &#8212; <time datetime="2026-05-01">1 Mai 2026</time>
-                        </summary>
-                        <p>Reduceri de pana la <strong>30%</strong> la toate cartile de fictiune si poezie.</p>
-                    </details>
-                    <details>
-                        <summary>&#128230; Livrare gratuita &#8212; <time datetime="2026-05-10">10 Mai 2026</time>
-                        </summary>
+                        <details>
+                            <summary>&#127881; Reduceri de Mai &#8212; <time datetime="2026-05-01">1 Mai 2026</time>
+                            </summary>
+                            <p>Reduceri de pana la <strong>30%</strong> la toate cartile de fictiune si poezie.</p>
+                        </details>
+
+                        <hr class="sageti">
+
+                        <details>
+                            <summary>&#128230; Livrare gratuita &#8212; <time datetime="2026-05-10">10 Mai 2026</time>
+                            </summary>
+                            <p>Comenzi peste <strong>150 RON</strong> beneficiaza de livrare gratuita in toata tara.</p>
+                        </details>
                         <p>Comenzi peste <strong>150 RON</strong> beneficiaza de livrare gratuita in toata tara.</p>
                     </details>
+
                     <details>
                         <summary>&#128218; Colectie noua &#8212; <time datetime="2026-05-14">14 Mai 2026</time>
                         </summary>
@@ -119,17 +135,7 @@
                     </details>
                 </section>
 
-                <section id="stocuri">
-                    <h2>Stocuri</h2>
-                    <p>Stoc "Harry Potter" de J.K Rowling <strong>(Cerere mare)</strong>:
-                        <meter value="12" min="0" max="100" low="20" high="80" optimum="90"></meter> - Ultimele articole
-                    </p>
-                    <p>Stoc "Ion" de Liviu Rebreanu:
-                        <meter value="85" min="0" max="100" low="20" high="80" optimum="90"></meter> - Stoc suficient
-                    </p>
-                </section>
-
-                <section id="top-vanzari">
+                <section id="top-vanzari" class="zona-2">
                     <h2>Top Vanzari luna trecuta</h2>
                     <div class="container-tabel">
                         <table>
@@ -180,29 +186,11 @@
                         </table>
                     </div>
                 </section>
-                <section id = "galerie-statica">
-                    <h2>Galerie</h2>
-                    <div id = "grid-galerie">
-                        <% 
-                            vectLuni = ["ianuarie", "februarie", "martie", "aprilie",
-                            "mai", "iunie", "iulie", "august", "septembrie", "octombrie",
-                            "noiembrie", "decembrie"];
-                            for (let imag of locals.imagini) { 
-                            lunaCurenta = vectLuni[(new Date()).getMonth()]    
 
-                            if(imag.luni?.includes(lunaCurenta)) { 
-                            %>
-                            <figure>
-                                <picture>
-                                    <source srcset ="<%- imag.fisier_mediu %>" media = "screen and (max-width: 1100px)">
-                                    <img src="<%- imag.fisier %>" alt="briose">
-                                    <figcaption><%- imag.descriere %></figcaption>
-                                </picture>
-                            </figure>
-                            <% } %>
-                       <% } %> 
-                    </div>
-                </section>
+                <%- include('../fragmente/galerie.ejs') %>
+                
+                <%- include('../fragmente/galerie-animata.ejs') %>
+
                 <section class="zona-8">
                     <div id="stocuri-2">
                         <h2>Stocuri</h2>
@@ -256,7 +244,8 @@
                                 <source src="/resurse/video/librarie tur.mp4" type="video/mp4">
                                 <source src="/resurse/video/librarie tur.webm" type="video/webm">
 
-                                <track kind="subtitles" src="/resurse/video/vtt/ro.vtt" srclang="ro" label="Română" default>
+                                <track kind="subtitles" src="/resurse/video/vtt/ro.vtt" srclang="ro" label="Română"
+                                    default>
                                 <track kind="subtitles" src="/resurse/video/vtt/en.vtt" srclang="en" label="English">
 
                                 Browserul tau nu suporta tagul video.

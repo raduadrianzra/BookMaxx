@@ -66,16 +66,21 @@ app.get("/favicon.ico", function(req, res){
 //    res.sendFile(path.join(__dirname, "index.html"));
 //}); 
 
-app.get(["/", "/index", "/home"], function(req, res){
+app.get(["/", "/index", "/home"], function(req, res) {
+    let animat = imaginiAnimate();
+    let cssAnimat = genereazaCssAnimat(animat.nr);
     res.render("pagini/index", {
         ip: req.ip,
-        imagini: obGlobal.obImagini.imagini
+        imagini: imaginiPentruAfisare(),
+        imaginiAnimate: animat.lista,
+        cssAnimat: cssAnimat
     });
 });
 
-app.get("/", function(req, res){
-    // res.sendFile(path.join(__dirname, "index.html"));
-    res.render("pagini/index");
+app.get("/galerie", function(req, res) {
+    res.render("pagini/galerie", {
+        imagini: imaginiPentruAfisare()
+    });
 });
 
 app.get("/despre", function(req, res){
@@ -282,28 +287,104 @@ app.get("/eroare", function(req, res){
     afisareEroare(res,404, "titlu!!"); 
 });
 
-function initImagini(){
-    var continut= fs.readFileSync(path.join(__dirname,"resurse/json/galerie.json")).toString("utf-8");
+const ZILE_SAPT = ["duminica", "luni", "marti", "miercuri", "joi", "vineri", "sambata"];
 
-    obGlobal.obImagini=JSON.parse(continut);
-    let vImagini=obGlobal.obImagini.imagini;
-    let caleGalerie=obGlobal.obImagini.cale_galerie
+let dataCurenta = new Date();
 
-    let caleAbs=path.join(__dirname,caleGalerie);
-    let caleAbsMediu=path.join(caleAbs, "mediu");
-    if (!fs.existsSync(caleAbsMediu))
-        fs.mkdirSync(caleAbsMediu);
-    
-    for (let imag of vImagini){
-        [numeFis, ext]=imag.fisier.split("."); //"ceva.png" -> ["ceva", "png"]
-        let caleFisAbs=path.join(caleAbs,imag.fisier);
-        let caleFisMediuAbs=path.join(caleAbsMediu, numeFis+".webp");
-        sharp(caleFisAbs).resize(300).toFile(caleFisMediuAbs);
-        imag.fisier_mediu=path.join("/", caleGalerie, "mediu", numeFis+".webp" )
-        imag.fisier=path.join("/", caleGalerie, imag.fisier )
-        
+function getZiCurenta() {
+    return ZILE_SAPT[dataCurenta.getDay()];
+}
+
+function imagineCorespundeZilei(imagine, ziCurenta) {
+    if (!imagine.intervale_zile || imagine.intervale_zile.length === 0) return true;
+    let idxZi = ZILE_SAPT.indexOf(ziCurenta);
+    if (idxZi === -1) return false;
+    for (let interval of imagine.intervale_zile) {
+        let [start, end] = interval;
+        let iStart = ZILE_SAPT.indexOf(start);
+        let iEnd = ZILE_SAPT.indexOf(end);
+        if (iStart === -1 || iEnd === -1) continue;
+        if (iStart <= iEnd) {
+            if (idxZi >= iStart && idxZi <= iEnd) return true;
+        } else {
+            if (idxZi >= iStart || idxZi <= iEnd) return true;
+        }
     }
-    // console.log(obGlobal.obImagini)
+    return false;
+}
+
+function imaginiPentruAfisare() {
+    let zi = getZiCurenta();
+    let filtrate = obGlobal.obImagini.imagini.filter(img =>
+        imagineCorespundeZilei(img, zi)
+    );
+    if (filtrate.length % 2 !== 0) {
+        filtrate = filtrate.slice(0, filtrate.length - 1);
+    }
+    return filtrate;
+}
+
+function numarImparAleator(min, max) {
+    let candidati = [];
+    for (let i = min; i <= max; i++) {
+        if (i % 2 === 1) candidati.push(i);
+    }
+    return candidati[Math.floor(Math.random() * candidati.length)];
+}
+
+function imaginiAnimate() {
+    let toate = obGlobal.obImagini.imagini;
+    let n = numarImparAleator(5, 11);
+    n = Math.min(n, toate.length);
+    if (n % 2 === 0) n--; 
+    if (n < 1) n = 1;
+    return { lista: toate.slice(-n), nr: n }; 
+}
+
+function genereazaCssAnimat(nrImagini) {
+    let caleScss = path.join(__dirname, "resurse/scss/galerie-animata.scss");
+    let template = fs.readFileSync(caleScss, "utf-8");
+    let scssFinal = template.replace(
+        "// __INJECT_NR_IMAGINI__",
+        `$nr-imagini: ${nrImagini};`
+    );
+    let rez = sass.compileString(scssFinal);
+    return rez.css;
+}
+
+function initImagini() {
+    let continut = fs.readFileSync(path.join(__dirname, "resurse/json/galerie.json")).toString("utf-8");
+    obGlobal.obImagini = JSON.parse(continut);
+    let vImagini = obGlobal.obImagini.imagini;
+    let caleGalerie = obGlobal.obImagini.cale_galerie;
+
+    let caleAbs = path.join(__dirname, caleGalerie);
+    let caleAbsMediu = path.join(caleAbs, "mediu");
+    let caleAbsMic = path.join(caleAbs, "mic");
+    if (!fs.existsSync(caleAbsMediu)) fs.mkdirSync(caleAbsMediu, { recursive: true });
+    if (!fs.existsSync(caleAbsMic)) fs.mkdirSync(caleAbsMic, { recursive: true });
+
+    for (let imag of vImagini) {
+        let fisierImagine = imag.fisier_imagine;
+        if (!fisierImagine) continue;
+        let [numeFis] = fisierImagine.split(".");
+        let caleFisAbs = path.join(caleAbs, fisierImagine);
+        let caleFisMediuAbs = path.join(caleAbsMediu, numeFis + ".webp");
+        let caleFisMicAbs = path.join(caleAbsMic, numeFis + ".webp");
+
+        if (fs.existsSync(caleFisAbs)) {
+            if (!fs.existsSync(caleFisMediuAbs)) {
+                sharp(caleFisAbs).resize(450).toFile(caleFisMediuAbs).catch(err => console.error("Sharp mediu:", err));
+            }
+            if (!fs.existsSync(caleFisMicAbs)) {
+                sharp(caleFisAbs).resize(250).toFile(caleFisMicAbs).catch(err => console.error("Sharp mic:", err));
+            }
+        }
+
+        imag.fisier_mare = path.join("/", caleGalerie, fisierImagine);
+        imag.fisier_mediu = path.join("/", caleGalerie, "mediu", numeFis + ".webp");
+        imag.fisier_mic = path.join("/", caleGalerie, "mic", numeFis + ".webp");
+    }
 }
 initImagini();
 
