@@ -1,13 +1,11 @@
 body {
     --culoare-fundal: #FAF5E9;
     --culoare-text: #2C3E50;
-    --culoare-principala: #8D6E63;
-    /*Etapa 2 1)schema cromatica*/
+    --culoare-principala: #8D6E63; /*Etapa 2 1)schema cromatica*/
     --culoare-border: #D7CCC8;
     --culoare-highlight: #D35400;
 
-    --spatiere-laterala: 5px;
-    /*Etapa 2 task rudimentar a)*/
+    --spatiere-laterala: 5px; /*Etapa 2 task rudimentar a)*/
     --grid-gap: 5px;
     --padding-sectiune: 10px;
 
@@ -20,8 +18,7 @@ body {
 
 html {
     font-size: 14px;
-    transition: font-size 0.5s ease;
-    /*Etapa 2 2.2)scris redimensionare*/
+    transition: font-size 0.5s ease;  /*Etapa 2 2.2)scris redimensionare*/
     scroll-behavior: smooth;
 }
 
@@ -79,16 +76,13 @@ footer {
     display: none;
 }
 
-.grid-container {
-    /*Etapa 2 2.1) layout-responsive*/
+.grid-container { /*Etapa 2 2.1) layout-responsive*/
     display: grid;
-    gap: var(--grid-gap);
-    /*Etapa 2 task rudimentar b)*/
+    gap: var(--grid-gap);    /*Etapa 2 task rudimentar b)*/
     padding: var(--grid-gap) var(--spatiere-laterala);
     /*Etapa 2 task rudimentar a)*/
 
-    grid-template-columns: 1fr;
-    /*o coloana sub 768*/
+    grid-template-columns: 1fr;  /*o coloana sub 768*/
     grid-template-areas:
         "z1"
         "z5"
@@ -132,11 +126,9 @@ footer {
     grid-area: z8;
 }
 
-main section {
+main section {/*Etapa 2 task rudimentar c)*/
     border: 1px solid var(--culoare-border);
-    /*Etapa 2 task rudimentar c)*/
-    padding: var(--padding-sectiune);
-    /*Etapa 2 task rudimentar d)*/
+    padding: var(--padding-sectiune);    /*Etapa 2 task rudimentar d)*/
     border-radius: 5px;
     background-color: white;
     box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.08);
@@ -227,7 +219,7 @@ figure {
 @media (max-width: 767px) {
 
     /*Etapa 2 2.3) dezactivare animatii ecran mic*/
-    * {
+    *:not(.hamburger span){
         animation: none !important;
         transition: none !important;
     }
@@ -238,8 +230,7 @@ figure {
     overflow-x: auto;
 }
 
-table {
-    /*Etapa 2 4) stilizare tabel*/
+table { /*Etapa 2 4) stilizare tabel*/
     width: 100%;
     border-collapse: collapse;
     border: 5px double var(--culoare-principala);
@@ -277,8 +268,7 @@ table tbody tr:hover th {
     border-width: 5px;
 }
 
-.container-iframe-taburi {
-    /*Etapa 2 3) stilizare taburi*/
+.container-iframe-taburi { /*Etapa 2 3) stilizare taburi*/
     display: flex;
     width: 100%;
     height: 400px;
@@ -665,7 +655,7 @@ hr.sageti {
     #link-top,
     .container-iframe-taburi,
     .meniu-taburi {
-        display: none !important;
+        display: none !important;  /*etapa 3 ascundere media printare*/
     }
 
     .grid-container {
@@ -678,7 +668,7 @@ hr.sageti {
         text-decoration: none !important;
     }
 
-    header {
+    header {  /*etapa 3 H1 centrat + meniu ca listă + page break-uri*/
         text-align: center;
     }
 
@@ -726,11 +716,10 @@ hr.sageti {
         page-break-before: always;
     }
 
-    body::after {
-        /*etapa 3 watermark*/
+    body::after {      /*etapa 3 watermark la sfarsit de body*/
+  
         content: "Zamfir\A Radu-Adrian";
         white-space: pre;
-        /*respecta /A*/
         position: fixed;
         top: 45%;
         left: 50%;
@@ -746,10 +735,10 @@ hr.sageti {
         font-weight: bold;
         font-family: 'Lora', Georgia, serif;
         z-index: 9999;
-        pointer-events: none;
+        pointer-events: none; /*watermark nu blocheaza clickuri*/
     }
 
-    @page :left {
+    @page :left {  /*etapa 3 margini diferite*/
         margin-left: 2cm;
         margin-right: 1cm;
     }
@@ -759,7 +748,7 @@ hr.sageti {
         margin-left: 1cm;
     }
 
-    body {
+    body {  /*pentru economie la imprimanta*/
         background-color: white !important;
         color: black !important;
     }
@@ -828,4 +817,32 @@ main a:hover {
 main a:active {
     border: 2px solid var(--culoare-highlight);
     border-radius: 3px;
+}
+
+/* Etapa 2 Bonus - stilizare formula MathML */
+.formula-mate {
+    font-size: 1.6rem;
+    margin: 15px 0;
+    font-family: 'Lora', Georgia, serif;
+}
+
+.formula-mate .variabila {
+    color: var(--culoare-principala);
+    font-style: italic;
+    font-weight: bold;
+}
+
+.formula-mate .constanta {
+    color: var(--culoare-highlight);
+    font-weight: bold;
+}
+
+.formula-mate .semn {
+    color: var(--culoare-text);
+    font-size: 1.1em;
+}
+
+.formula-mate .putere {
+    color: var(--culoare-highlight);
+    font-style: normal;
 }

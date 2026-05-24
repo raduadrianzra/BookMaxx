@@ -188,71 +188,109 @@
                 </section>
 
                 <%- include('../fragmente/galerie.ejs') %>
-                
-                <%- include('../fragmente/galerie-animata.ejs') %>
 
-                <section class="zona-8">
-                    <div id="stocuri-2">
-                        <h2>Stocuri</h2>
-                        <p>Stoc "Harry Potter" de J.K Rowling <strong>(Cerere mare)</strong>:
-                            <meter value="12" min="0" max="100" low="20" high="80" optimum="90"></meter> - Ultimele
-                            articole
-                        </p>
-                        <p>Stoc "Ion" de Liviu Rebreanu:
-                            <meter value="85" min="0" max="100" low="20" high="80" optimum="90"></meter> - Stoc
-                            suficient
-                        </p>
-                    </div>
+                    <%- include('../fragmente/galerie-animata.ejs') %>
 
-                    <section id="faq">
-                        <h2>Intrebari frecvente</h2>
-                        <details>
-                            <summary>Cat dureaza livrarea?</summary>
-                            <p>Livrarea dureaza intre 2 si 4 zile lucratoare.</p>
-                        </details>
-                        <details>
-                            <summary>Pot returna o carte?</summary>
-                            <p>Da, orice carte poate fi returnata in maxim 14 zile de la achizitie, cu conditia sa nu
-                                fie
-                                deteriorata.</p>
-                        </details>
-                    </section>
+                        <section class="zona-8">
+                            <div id="stocuri-2">
+                                <h2>Stocuri</h2>
+                                <p>Stoc "Harry Potter" de J.K Rowling <strong>(Cerere mare)</strong>:
+                                    <meter value="12" min="0" max="100" low="20" high="80" optimum="90"></meter> -
+                                    Ultimele
+                                    articole
+                                </p>
+                                <p>Stoc "Ion" de Liviu Rebreanu:
+                                    <meter value="85" min="0" max="100" low="20" high="80" optimum="90"></meter> - Stoc
+                                    suficient
+                                </p>
+                            </div>
 
-                    <section id="media">
-                        <h2>Media</h2>
-                        <p>Puteti citi mai multe despre importanta cititului aici:
-                            <a href="https://www.dictie.ro/20-de-motive-pentru-care-cititul-este-important/"
-                                target="_blank">Importanta cititului</a>
-                        </p>
-                        <div class="container-iframe-taburi">
-                            <nav class="meniu-taburi">
-                                <a href="https://www.youtube.com/embed/jfKfPfyJRdk" target="video_player">Recenzie
-                                    Cartea 1</a>
-                                <a href="https://www.youtube.com/embed/tgbNymZ7vqY" target="video_player">Recenzie
-                                    Cartea 2</a>
-                                <a href="https://en.wikipedia.org/wiki/Book" target="video_player">Despre Carti
-                                    (Wiki)</a>
-                            </nav>
-                            <iframe name="video_player" class="iframe-continut" src="about:blank"
-                                title="Player video si continut"></iframe>
-                        </div>
+                            <section id="faq">
+                                <h2>Intrebari frecvente</h2>
+                                <details>
+                                    <summary>Cat dureaza livrarea?</summary>
+                                    <p>Livrarea dureaza intre 2 si 4 zile lucratoare.</p>
+                                </details>
+                                <details>
+                                    <summary>Pot returna o carte?</summary>
+                                    <p>Da, orice carte poate fi returnata in maxim 14 zile de la achizitie, cu conditia
+                                        sa nu
+                                        fie
+                                        deteriorata.</p>
+                                </details>
+                            </section>
 
-                        <section id="videoclip">
-                            <h2>Videoclip promotional</h2>
-                            <video controls preload="none" poster="/resurse/imagini/poster-video.jpg"
-                                class="video-promotional">
-                                <source src="/resurse/video/librarie tur.mp4" type="video/mp4">
-                                <source src="/resurse/video/librarie tur.webm" type="video/webm">
+                            <section id="formula">
+                                <h2>Formula matematica (MathML)</h2> <!--mathml bonus etapa 2-->
+                                <p>Solutia ecuatiei de gradul al II-lea:</p>
+                                <math xmlns="http://www.w3.org/1998/Math/MathML" display="block" class="formula-mate">
+                                    <msub>
+                                        <mi class="variabila">x</mi>
+                                        <mn>1,2</mn>
+                                    </msub>
+                                    <mo>=</mo>
+                                    <mfrac>
+                                        <mrow>
+                                            <mo class="semn">&#x2212;</mo>
+                                            <mi class="variabila">b</mi>
+                                            <mo class="semn">&#x00B1;</mo>
+                                            <msqrt>
+                                                <msup>
+                                                    <mi class="variabila">b</mi>
+                                                    <mn class="putere">2</mn>
+                                                </msup>
+                                                <mo class="semn">&#x2212;</mo>
+                                                <mn class="constanta">4</mn>
+                                                <mi class="variabila">a</mi>
+                                                <mi class="variabila">c</mi>
+                                            </msqrt>
+                                        </mrow>
+                                        <mrow>
+                                            <mn class="constanta">2</mn>
+                                            <mi class="variabila">a</mi>
+                                        </mrow>
+                                    </mfrac>
+                                </math>
+                            </section>
 
-                                <track kind="subtitles" src="/resurse/video/vtt/ro.vtt" srclang="ro" label="Română"
-                                    default>
-                                <track kind="subtitles" src="/resurse/video/vtt/en.vtt" srclang="en" label="English">
+                            <section id="media">
+                                <h2>Media</h2>
+                                <p>Puteti citi mai multe despre importanta cititului aici:
+                                    <a href="https://www.dictie.ro/20-de-motive-pentru-care-cititul-este-important/"
+                                        target="_blank">Importanta cititului</a>
+                                </p>
+                                <div class="container-iframe-taburi">
+                                    <nav class="meniu-taburi">
+                                        <a href="https://www.youtube.com/embed/jfKfPfyJRdk"
+                                            target="video_player">Recenzie
+                                            Cartea 1</a>
+                                        <a href="https://www.youtube.com/embed/tgbNymZ7vqY"
+                                            target="video_player">Recenzie
+                                            Cartea 2</a>
+                                        <a href="https://en.wikipedia.org/wiki/Book" target="video_player">Despre Carti
+                                            (Wiki)</a>
+                                    </nav>
+                                    <iframe name="video_player" class="iframe-continut" src="about:blank"
+                                        title="Player video si continut"></iframe>
+                                </div>
 
-                                Browserul tau nu suporta tagul video.
-                            </video>
+                                <section id="videoclip">
+                                    <h2>Videoclip promotional</h2>
+                                    <video controls preload="none" poster="/resurse/imagini/poster-video.jpg"
+                                        class="video-promotional">
+                                        <source src="/resurse/video/librarie tur.mp4" type="video/mp4">
+                                        <source src="/resurse/video/librarie tur.webm" type="video/webm">
+
+                                        <track kind="subtitles" src="/resurse/video/vtt/ro.vtt" srclang="ro"
+                                            label="Română" default>
+                                        <track kind="subtitles" src="/resurse/video/vtt/en.vtt" srclang="en"
+                                            label="English">
+
+                                        Browserul tau nu suporta tagul video.
+                                    </video>
+                                </section>
+                            </section>
                         </section>
-                    </section>
-                </section>
             </main>
 
             <%- include('../fragmente/footer.ejs') %>

@@ -26,7 +26,7 @@ console.log("Cale fisier", __filename);
 
 
 
-/*client = new pg.Client({
+client = new pg.Client({
     database:"cti_2026",
     user:"radu",
     password:"radu",
@@ -43,7 +43,7 @@ client.query("select * from prajituri where id>3", function(err,rez){
     else{
         console.log("Rezultat")
     }
-})*/
+})
 
 
 
@@ -76,6 +76,25 @@ app.get(["/", "/index", "/home"], function(req, res) {
         cssAnimat: cssAnimat
     });
 });
+
+/* app.get("/produs/:id", function(req,res){
+    client.query(`select * from prajituri where id=${req.params.id}`, function(err,rez){
+    if(err){
+        console.log("Eroare", err)
+        afisareEroare(res,2)
+    }
+    else{
+        if(rez.rowCount == 0){
+            afisareEroare(res,404,"Produs inexistent")
+        }
+        else{
+        res.render("pagini/produs",{
+            produse:rez.rows[0]
+            
+        })  
+        }
+    })
+})*/
 
 app.get("/galerie", function(req, res) {
     res.render("pagini/galerie", {

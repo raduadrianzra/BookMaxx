@@ -18,7 +18,7 @@
     z-index: 200;
     border: 1px solid var(--culoare-principala);
   }
-  nav .nav-list.open {
+  nav .nav-list.open { /*Etapa 3 ecan mic hamburger*/
     display: flex;
     -webkit-mask-image: linear-gradient(to bottom, black 0%, black 75%, transparent 100%);
     mask-image: linear-gradient(to bottom, black 0%, black 75%, transparent 100%);

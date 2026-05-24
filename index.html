@@ -40,7 +40,7 @@
             <p>O librarie online</p>
         </hgroup>
 
-        <nav id="main-nav"> <!--Etapa 3 meniu-->
+        <nav id="main-nav"> <!--Etapa 3 variante-meniu-->
             <div class="hamburger" id="hamburger-btn" role="button" aria-label="Deschide meniu" tabindex="0">
                 <span></span>
                 <span></span>
@@ -65,15 +65,14 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="carti.html">
-                        <i class="fa-solid fa-book" aria-hidden="true"></i>
+                    <a href="carti.html"><i class="fa-solid fa-book" aria-hidden="true"></i>
                         <span class="nav-text">Carti</span>
                     </a>
-                    <ul class="submenu">
+                    <ul class="submenu" id="submenu-2">
                         <li><a href="fictiune.html"><i class="fa-solid fa-magic" aria-hidden="true"></i> Fictiune</a>
                         </li>
-                        <li><a href="literatura.html"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
-                                Literatura</a></li>
+                        <li><a href="literatura.html"><i class="fa-solid fa-graduation-cap"
+                                    aria-hidden="true"></i>Literatura</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
@@ -221,6 +220,7 @@
                         </tr>
                         <tr>
                             <td rowspan="2">Pachet Promo: Morometii vol. 1 si vol. 2</td>
+                            <!--Etaoa 2 rowspan diferit stilizare table-->
                             <td rowspan="2">Marin Preda</td>
                             <td>Vol 1: 80</td>
                             <td>50 RON</td>
@@ -262,6 +262,38 @@
                         deteriorata.</p>
                 </details>
             </section>
+            <section id="formula">
+                <h2>Formula matematica (MathML)</h2> <!--mathml bonus etapa 2-->
+                <p>Solutia ecuatiei de gradul al II-lea:</p>
+                <math xmlns="http://www.w3.org/1998/Math/MathML" display="block" class="formula-mate">
+                    <msub>
+                        <mi class="variabila">x</mi>
+                        <mn>1,2</mn>
+                    </msub>
+                    <mo>=</mo>
+                    <mfrac>
+                        <mrow>
+                            <mo class="semn">&#x2212;</mo>
+                            <mi class="variabila">b</mi>
+                            <mo class="semn">&#x00B1;</mo>
+                            <msqrt>
+                                <msup>
+                                    <mi class="variabila">b</mi>
+                                    <mn class="putere">2</mn>
+                                </msup>
+                                <mo class="semn">&#x2212;</mo>
+                                <mn class="constanta">4</mn>
+                                <mi class="variabila">a</mi>
+                                <mi class="variabila">c</mi>
+                            </msqrt>
+                        </mrow>
+                        <mrow>
+                            <mn class="constanta">2</mn>
+                            <mi class="variabila">a</mi>
+                        </mrow>
+                    </mfrac>
+                </math>
+            </section>
 
             <section id="media">
                 <h2>Media</h2>
@@ -271,8 +303,8 @@
                 </p>
                 <div class="container-iframe-taburi">
                     <nav class="meniu-taburi">
-                        <a href="https://www.youtube.com/embed/jfKfPfyJRdk" target="video_player">Recenzie Cartea 1</a>
-                        <a href="https://www.youtube.com/embed/tgbNymZ7vqY" target="video_player">Recenzie Cartea 2</a>
+                        <a href="https://www.youtube.com/embed/dasdfas" target="video_player">Recenzie Cartea 1</a>
+                        <a href="https://www.youtube.com/embed/gtrefsd" target="video_player">Recenzie Cartea 2</a>
                         <a href="https://en.wikipedia.org/wiki/Book" target="video_player">Despre Carti (Wiki)</a>
                     </nav>
                     <iframe name="video_player" class="iframe-continut" src="about:blank"
@@ -284,7 +316,7 @@
 
     <footer>
         <hr>
-        <p class="banner-scolar">Acesta este un proiect scolar!</p>
+        <p class="banner-scolar">Acesta este un proiect scolar!</p> <!--Etapa 3 printare-->
 
         <address>
             <p>Contacteaza-ne:</p>

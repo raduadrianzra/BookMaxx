@@ -1,4 +1,4 @@
-$nr-bare: 3;           
+$nr-bare: 3;           /*Etapa 3 animatie hamburger menu*/
 $t-delay: 150ms;       
 $durata-anim: 0.4s;   
 
@@ -99,7 +99,7 @@ nav .nav-item .submenu li a {
     }
 }
 
-nav {
+nav {   /*pt val repetitive*/
     position: relative;
 
     .hamburger {
