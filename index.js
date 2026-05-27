@@ -285,6 +285,7 @@ function initErori(){
 }
 verificareErori();
 initErori();
+verificareGalerie();
 
 function afisareEroare(res, identificator, titlu, text, imagine){
     let eroare = obGlobal.obErori.info_erori.find((elem) => 
@@ -300,6 +301,73 @@ function afisareEroare(res, identificator, titlu, text, imagine){
         text: text || eroare?.text || errDefault.text,    
     });
     
+}
+
+function verificareGalerie() {
+    let caleFisier = path.join(__dirname, "resurse/json/galerie.json");
+    if (!fs.existsSync(caleFisier)) {
+        console.error(
+            `[EROARE GALERIE] Fisierul galerie.json NU EXISTA la calea: "${caleFisier}". ` +
+            `Creati fisierul si reporniti serverul.`
+        );
+        return;
+    }
+
+    let galerie;
+    try {
+        galerie = JSON.parse(fs.readFileSync(caleFisier).toString("utf-8"));
+    } catch (e) {
+        console.error(
+            `[EROARE GALERIE] Fisierul galerie.json contine JSON invalid: ${e.message}. ` +
+            `Verificati sintaxa fisierului.`
+        );
+        return;
+    }
+
+    // a) Folderul din "cale_galerie" nu exista in sistemul de fisiere
+    if (!galerie.cale_galerie) {
+        console.error(
+            `[EROARE GALERIE A] Fisierul galerie.json NU contine proprietatea obligatorie ` +
+            `"cale_galerie". Adaugati calea catre folderul cu imaginile galeriei.`
+        );
+        return;
+    }
+    let caleFolder = path.join(__dirname, galerie.cale_galerie);
+    if (!fs.existsSync(caleFolder)) {
+        console.error(
+            `[EROARE GALERIE A] Folderul specificat in "cale_galerie" ("${galerie.cale_galerie}") ` +
+            `NU EXISTA in sistemul de fisiere la calea: "${caleFolder}". ` +
+            `Creati folderul sau corectati valoarea "cale_galerie" din galerie.json.`
+        );
+        return;
+    }
+
+    // b) Vreunul dintre fisierele imagine din lista nu exista in sistemul de fisiere
+    if (!Array.isArray(galerie.imagini)) {
+        console.error(
+            `[EROARE GALERIE B] Proprietatea "imagini" din galerie.json lipseste sau nu este un vector. ` +
+            `Adaugati lista de imagini in format vector.`
+        );
+        return;
+    }
+    for (let imag of galerie.imagini) {
+        let numeFisier = imag.fisier_imagine;
+        if (!numeFisier) {
+            console.error(
+                `[EROARE GALERIE B] O imagine din lista nu are proprietatea "fisier_imagine". ` +
+                `Obiect: ${JSON.stringify(imag)}`
+            );
+            continue;
+        }
+        let caleImg = path.join(caleFolder, numeFisier);
+        if (!fs.existsSync(caleImg)) {
+            console.error(
+                `[EROARE GALERIE B] Imaginea "${numeFisier}" (specificata in lista de imagini din galerie.json) ` +
+                `NU EXISTA in sistemul de fisiere la calea: "${caleImg}". ` +
+                `Adaugati fisierul imagine in folderul galeriei sau corectati proprietatea "fisier_imagine".`
+            );
+        }
+    }
 }
 
 app.get("/eroare", function(req, res){
@@ -409,31 +477,35 @@ initImagini();
 
 function compileazaScss(caleScss, caleCss){
     if(!caleCss){
-
-        let numeFisExt=path.basename(caleScss); // "folder1/folder2/a.scss" -> "a.scss"
-        let numeFis=numeFisExt.split(".")[0]   /// "a.scss"  -> ["a","scss"]
-        caleCss=numeFis+".css"; // output: a.css
+        let numeFisExt = path.basename(caleScss);   // "folder/a.scss" -> "a.scss"
+        // BONUS 4: foloseste extname/basename in loc de split(".") ca sa mearga
+        // si pentru nume cu puncte (ex: "stil.frumos.scss")
+        let ext = path.extname(numeFisExt);          // ".scss"
+        let numeFis = path.basename(numeFisExt, ext); // "a"  sau  "stil.frumos"
+        caleCss = numeFis + ".css";                   // "a.css" sau "stil.frumos.css"
     }
-    
+
     if (!path.isAbsolute(caleScss))
-        caleScss=path.join(obGlobal.folderScss,caleScss )
+        caleScss = path.join(obGlobal.folderScss, caleScss);
     if (!path.isAbsolute(caleCss))
-        caleCss=path.join(obGlobal.folderCss,caleCss )
-    
-    let caleBackup=path.join(obGlobal.folderBackup, "resurse/css");
-    if (!fs.existsSync(caleBackup)) {
-        fs.mkdirSync(caleBackup,{recursive:true})
-    }
-    
-    // la acest punct avem cai absolute in caleScss si  caleCss
+        caleCss = path.join(obGlobal.folderCss, caleCss);
 
-    let numeFisCss=path.basename(caleCss);
-    if (fs.existsSync(caleCss)){
-        fs.copyFileSync(caleCss, path.join(obGlobal.folderBackup, "resurse/css",numeFisCss ))// +(new Date()).getTime()
+    let caleBackup = path.join(obGlobal.folderBackup, "resurse/css");
+    if (!fs.existsSync(caleBackup)) {
+        fs.mkdirSync(caleBackup, { recursive: true });
     }
-    rez=sass.compile(caleScss, {"sourceMap":true});
-    fs.writeFileSync(caleCss,rez.css)
-    
+
+    // BONUS 3: salveaza backup cu informatie de timp in nume (a_timestamp.css)
+    let numeFisCss = path.basename(caleCss);             // "a.css"
+    let extCss = path.extname(numeFisCss);               // ".css"
+    let numeFaraExt = path.basename(numeFisCss, extCss);  // "a"  (merge si pt "stil.frumos")
+    if (fs.existsSync(caleCss)){
+        let numeBackup = numeFaraExt + "_" + (new Date()).getTime() + extCss;  // a_1681124489791.css
+        fs.copyFileSync(caleCss, path.join(caleBackup, numeBackup));
+    }
+
+    let rez = sass.compile(caleScss, { "sourceMap": true });
+    fs.writeFileSync(caleCss, rez.css);
 }
 
 //la pornirea serverului

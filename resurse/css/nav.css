@@ -81,21 +81,15 @@ nav .nav-item .submenu li a {
   text-decoration: none;
   transition: color 0.3s ease;
   cursor: pointer;
-  transition: all 0.3s ease;
-  padding: 10px 16px;
-  display: flex;
 }
-
 nav .nav-item > a i,
 nav .nav-item .submenu li a i {
   color: var(--culoare-highlight);
   flex-shrink: 0;
 }
-
 nav .nav-item > a:hover,
 nav .nav-item .submenu li a:hover {
   color: var(--culoare-highlight);
-  background-color: var(--culoare-fundal);
 }
 
 nav { /*pt val repetitive*/
@@ -165,7 +159,10 @@ nav .nav-item .submenu { /*menu transformare etapa 3*/
   transform-origin: top left;
   transition: transform 0.3s ease;
 }
-
+nav .nav-item .submenu li a {
+  padding: 10px 16px;
+  display: flex;
+}
 nav .nav-item:hover .submenu {
   transform: scale(1);
 }

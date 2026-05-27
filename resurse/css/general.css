@@ -342,7 +342,7 @@ table tbody tr:hover th {
     border-left: 12px solid transparent;
     border-right: 12px solid transparent;
     border-bottom: 20px solid var(--culoare-principala);
-    border-radius: 3px;
+    border-radius: 10px;
     transition: all 0.5s ease;
 }
 
@@ -819,7 +819,7 @@ main a:active {
     border-radius: 3px;
 }
 
-/* Etapa 2 Bonus - stilizare formula MathML */
+/* Etapa 2 Bonus - stilizar MathML */
 .formula-mate {
     font-size: 1.6rem;
     margin: 15px 0;
@@ -845,4 +845,90 @@ main a:active {
 .formula-mate .putere {
     color: var(--culoare-highlight);
     font-style: normal;
+}
+
+/* Etapa 5 - scriere text pe coloane */
+.text-coloane {
+    column-count: 2;
+    column-gap: 30px;
+    column-rule: 2px dashed var(--culoare-principala);   /* linie despartitoare */
+}
+
+/* Pe ecran mic si mediu - o singura coloana */
+@media (max-width: 1023px) {
+    .text-coloane {
+        column-count: 1;
+    }
+}
+
+/* Etapa 5 - stilizare text selectat */
+::selection {
+    background-color: var(--culoare-principala);   /* proprietate 1: fundal */
+    color: var(--culoare-fundal);                  /* proprietate 2: culoare text */
+    text-shadow: 1px 1px 2px var(--culoare-highlight);  /* proprietate 3: umbra */
+}
+/* prefix pentru Firefox */
+::-moz-selection {
+    background-color: var(--culoare-principala);
+    color: var(--culoare-fundal);
+    text-shadow: 1px 1px 2px var(--culoare-highlight);
+}
+
+/* Etapa 5 - text care se plimba (marquee) */
+.marquee-container {
+    width: 100%;
+    overflow: hidden;          /* CRITIC: ascunde textul in afara => fara scrollbar orizontal */
+    white-space: nowrap;
+    border: 1px solid var(--culoare-border);
+    border-radius: 4px;
+    padding: 6px 0;
+    background-color: var(--culoare-fundal);
+}
+
+.marquee-text {
+    display: inline-block;
+    margin: 0;
+    padding-left: 100%;        /* porneste din dreapta, in afara ecranului */
+    color: var(--culoare-highlight);
+    font-weight: bold;
+    animation: marquee 15s linear infinite;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0);       /* incepe din dreapta (datorita padding-left: 100%) */
+    }
+    100% {
+        transform: translateX(-100%);   /* iese complet prin stanga, apoi reapare (infinite) */
+    }
+}
+
+/* pauza la hover (optional, bonus) */
+.marquee-container:hover .marquee-text {
+    animation-play-state: paused;
+}
+
+/* Etapa 5 - background fix la scroll cu schimbare animata */
+body.fundal-fix {
+    background-image: url('/resurse/imagini/galerie/biblioteca-rafturi.jpg');
+    background-attachment: fixed;       /* fundalul ramane fix la scroll */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    animation: schimba-fundal 12s ease-in-out infinite;   /* t = 12 secunde */
+}
+
+@keyframes schimba-fundal {
+    0% {
+        background-image: url('/resurse/imagini/galerie/biblioteca-rafturi.jpg');
+    }
+    33% {
+        background-image: url('/resurse/imagini/galerie/carti-vechi.jpg');
+    }
+    66% {
+        background-image: url('/resurse/imagini/galerie/raft-clasici.jpg');
+    }
+    100% {
+        background-image: url('/resurse/imagini/galerie/biblioteca-rafturi.jpg');
+    }
 }

@@ -1,0 +1,49 @@
+/* corectare-bootstrap.css - readuce site-ul la forma initiala dupa integrarea Bootstrap */
+
+/* Reboot pune margin/line-height pe body - readucem fontul si culorile tale */
+body {
+    margin: 0;
+    font-family: 'Open Sans', Arial, sans-serif;
+    background-color: var(--culoare-fundal);
+    color: var(--culoare-text);
+    line-height: normal;
+}
+
+/* Headingurile - readucem dimensiunile si culorile din general.css */
+h1, h2, h3 {
+    font-family: 'Lora', Georgia, serif;
+    margin: 0;
+    line-height: 1.2;
+}
+h1 { font-size: 2.5rem; color: var(--culoare-principala); }
+h2 { font-size: 2rem;   color: var(--culoare-principala); }
+h3 { font-size: 1.5rem; color: var(--culoare-principala); }
+
+/* Linkurile - revenim la stilul tau (fara underline implicit Bootstrap) */
+a {
+    color: var(--culoare-highlight);
+    text-decoration: none;
+}
+a:hover { color: var(--culoare-text); }
+
+/* Tabelul - Bootstrap Reboot reseteaza border-collapse */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 5px double var(--culoare-principala);
+}
+th, td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid var(--culoare-border);
+}
+
+/* Paragrafele - Reboot adauga margin-bottom */
+p { margin: 0 0 1em 0; }
+
+/* Listele din nav - Bootstrap le poate reseta */
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}

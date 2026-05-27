@@ -21,6 +21,23 @@
             <p>O librarie online</p>
         </hgroup>
         <%- include('../fragmente/header.ejs') %>
+            <p>
+                <button class="btn btn-primary">Primary (maro)</button>
+                <button class="btn btn-secondary">Secondary (portocaliu)</button>
+                <button class="btn btn-success">Success (verde)</button>
+            </p>
+
+            <div class="alert alert-primary" role="alert">
+                Alerta Bootstrap cu tema cromatica proprie - colturi rotunjite, font Open Sans.
+            </div>
+
+            <div class="card" style="max-width: 22rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Card Bootstrap</h5>
+                    <p class="card-text">Border-radius marit si umbra activata prin variabilele din custom.scss.</p>
+                    <a href="#" class="btn btn-primary">Detalii</a>
+                </div>
+            </div>
             <p><button class="btn btn-primary">Buton bootstrap</button></p>
             <main class="grid-container">
 
@@ -33,33 +50,34 @@
                     <p>IP-ul tău este: <%- locals.ip %></p>
 
                     <article>
-                        <h3>Scopul librariei</h3>
-                        <p>Ne dorim sa aducem cele mai bune titluri aproape de voi.</p>
-                        <blockquote>"Ai carte ai parte."</blockquote>
-                        <p>Daca te consideri <dfn
-                                title="Iubitor si colectionar de carti rare si pretioase.">bibliofil</dfn>
-                            atunci libraria noastra este perfecta pentru tine.</p>
-                    </article>
+                        <article class="text-coloane">
+                            <h3>Scopul librariei</h3>
+                            <p>Ne dorim sa aducem cele mai bune titluri aproape de voi.</p>
+                            <blockquote>"Ai carte ai parte."</blockquote>
+                            <p>Daca te consideri <dfn
+                                    title="Iubitor si colectionar de carti rare si pretioase.">bibliofil</dfn>
+                                atunci libraria noastra este perfecta pentru tine.</p>
+                        </article>
 
-                    <figure>
-                        <picture>
-                            <img src="/resurse/imagini/carte_mica.jpg" alt="Carte Isaac" title="imagine carte mica">
-                        </picture>
-                        <figcaption>O carte laudata de critici.</figcaption>
-                    </figure>
+                        <figure>
+                            <picture>
+                                <img src="/resurse/imagini/carte_mica.jpg" alt="Carte Isaac" title="imagine carte mica">
+                            </picture>
+                            <figcaption>O carte laudata de critici.</figcaption>
+                        </figure>
 
-                    <figure>
-                        <div class="duotone">
-                            <div class="duotone-img"></div>
-                        </div>
-                        <figcaption>Efect duotone &mdash; treci cu mouse-ul pentru grayscale</figcaption>
-                    </figure>
+                        <figure>
+                            <div class="duotone">
+                                <div class="duotone-img"></div>
+                            </div>
+                            <figcaption>Efect duotone &mdash; treci cu mouse-ul pentru grayscale</figcaption>
+                        </figure>
 
-                    <p>Poti descarca catalogul nostru aici:
-                        <a href="/resurse/Catalog.pdf" download="Catalog_2026.pdf">
-                            <i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i> Descarca catalogul
-                        </a>
-                    </p>
+                        <p>Poti descarca catalogul nostru aici:
+                            <a href="/resurse/Catalog.pdf" download="Catalog_2026.pdf">
+                                <i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i> Descarca catalogul
+                            </a>
+                        </p>
                 </section>
 
                 <section class="zona-5">
@@ -111,6 +129,10 @@
 
                 <section class="zona-4">
                     <h3>Anunturi</h3>
+                    <div class="marquee-container">
+                        <p class="marquee-text">📚 Reduceri de pana la 30% la fictiune si poezie! 🎉 Livrare gratuita
+                            peste 150 RON! 📖 Colectie noua Classici Universali!</p>
+                    </div>
                     <details>
                         <details>
                             <summary>&#127881; Reduceri de Mai &#8212; <time datetime="2026-05-01">1 Mai 2026</time>
@@ -261,10 +283,10 @@
                                 </p>
                                 <div class="container-iframe-taburi">
                                     <nav class="meniu-taburi">
-                                        <a href="https://www.youtube.com/embed/jfKfPfyJRdk"
+                                        <a href="https://www.youtube.com/embed/_4QxDOCagxg"
                                             target="video_player">Recenzie
                                             Cartea 1</a>
-                                        <a href="https://www.youtube.com/embed/tgbNymZ7vqY"
+                                        <a href="https://www.youtube.com/embed/izn60ISpxrQ"
                                             target="video_player">Recenzie
                                             Cartea 2</a>
                                         <a href="https://en.wikipedia.org/wiki/Book" target="video_player">Despre Carti

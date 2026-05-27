@@ -1,0 +1,50 @@
+// custom.scss - Customizare Bootstrap cu schema cromatica proprie
+// Se compileaza automat la pornirea serverului (compileazaScss)
+
+@use "../../node_modules/bootstrap/scss/bootstrap" with (
+
+    // === Culori de background pentru teme (minim 2) cu schema cromatica proprie ===
+    $primary:   #8D6E63,   // maro  (--culoare-principala) - tema 1
+    $secondary: #D35400,   // portocaliu (--culoare-highlight) - tema 2
+    $success:   #6B8E5A,   // verde masliniu - tema 3 (bonus)
+    $light:     #FAF5E9,   // crem (--culoare-fundal)
+    $dark:      #2C3E50,   // albastru inchis (--culoare-text)
+
+    // === Culori de font ===
+    $body-color: #2C3E50,  // culoarea literelor in pagina
+    $link-color: #D35400,  // culoarea linkurilor (litere)
+
+    // === Background general ===
+    $body-bg: #FAF5E9,
+
+    // === Dimensiuni de ecran diferite pentru md si lg ===
+    $grid-breakpoints: (
+        xs: 0,
+        sm: 576px,
+        md: 820px,    // modificat (default 768px)
+        lg: 1100px,   // modificat (default 992px)
+        xl: 1200px,
+        xxl: 1400px
+    ),
+
+    // === Dimensiunea razelor de border ===
+    $border-radius:    0.6rem,
+    $border-radius-sm: 0.4rem,
+    $border-radius-lg: 1rem,
+
+    // === Dimensiunea literelor headingurilor (h1, h2, h3...) ===
+    $h1-font-size: 2.8rem,
+    $h2-font-size: 2.2rem,
+    $h3-font-size: 1.7rem,
+    $h4-font-size: 1.4rem,
+
+    // === Familia de font implicita ===
+    $font-family-base:     ("Open Sans", Arial, sans-serif),
+    $headings-font-family: ("Lora", Georgia, serif),
+
+    // === Variabile suplimentare alese de mine ===
+    $spacer:        1.2rem,
+    $btn-padding-x: 1.5rem,
+    $btn-padding-y: 0.6rem,
+    $enable-shadows: true
+);
